@@ -15,8 +15,8 @@ CREATE DATABASE tournament;
 CREATE TABLE players ( name TEXT,
                        id SERIAL primary key );
 
-CREATE TABLE matches ( winner SERIAL references players (id),
-                       loser SERIAL references players (id),
+CREATE TABLE matches ( winner INTEGER references players (id),
+                       loser INTEGER references players (id),
                        match_id SERIAL primary key );
 
 -- Create a matcnt VIEW to merge winner and loser into the same column
