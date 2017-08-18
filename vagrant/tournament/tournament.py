@@ -81,7 +81,6 @@ def playerStandings():
             """
     c.execute(query)
     stand = c.fetchall()
-    #print "STAND", stand
     db.close()
     return stand
 
@@ -118,9 +117,6 @@ def swissPairings():
     """
     db = connect()
     c = db.cursor()
-    #c.execute("SELECT * from ranks")
-    #tmp = c.fetchall()
-    #print "RANK: ", tmp
     query = """
             SELECT r1.id,
                    r1.name,
@@ -131,8 +127,6 @@ def swissPairings():
             """
     c.execute(query)
     pairs = c.fetchall()
-    #print "PAIRS: ", pairs
+    db.close()
     return pairs
-
-
 
