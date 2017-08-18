@@ -7,25 +7,35 @@ import psycopg2
 
 def connect():
     """Connect to the PostgreSQL database.  Returns a database connection."""
-    return psycopg2.connect("dbname=tournament")
+    try:
+        db = psycopg2.connect("dbname=tournament")
+        return db
+    except psycopg2.OperationalError as e:
+        print e.message
+
+
+def execute_query(query):
+    """Takes a query statement as input and executes it"""
+    try:
+        db = connect()
+        cursor = db.cursor()
+        cursor.execute(query)
+        db.commit()
+        db.close()
+    except AttributeError as e:
+        print e.message
 
 
 def deleteMatches():
     """Remove all the match records from the database."""
-    db = connect()
-    c = db.cursor()
-    c.execute( "DELETE FROM matches")
-    db.commit()
-    db.close()
+    query = "DELETE FROM matches"
+    execute_query(query)
 
 
 def deletePlayers():
     """Remove all the player records from the database."""
-    db = connect()
-    c = db.cursor()
-    c.execute( "DELETE FROM players")
-    db.commit()
-    db.close()
+    query = "DELETE FROM players"
+    execute_query(query)
 
 
 def countPlayers():
@@ -58,8 +68,8 @@ def registerPlayer(name):
 def playerStandings():
     """Returns a list of the players and their win records, sorted by wins.
 
-    The first entry in the list should be the player in first place, or a player
-    tied for first place if there is currently a tie.
+    The first entry in the list should be the player in first place, or a
+    player tied for first place if there is currently a tie.
 
     Returns:
       A list of tuples, each of which contains (id, name, wins, matches):
