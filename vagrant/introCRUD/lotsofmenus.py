@@ -18,6 +18,19 @@ DBSession = sessionmaker(bind=engine)
 # session.rollback()
 session = DBSession()
 
+# remove prious restaurant and menu
+rest = session.query(Restaurant).all()
+if len(rest) != 0:
+    for r in rest:
+        session.delete(r)
+    session.commit()
+
+menus = session.query(MenuItem).all()
+if len(menus) != 0:
+    for m in menus:
+        session.delete(m)
+    session.commit()
+
 
 # Menu for UrbanBurger
 restaurant1 = Restaurant(name="Urban Burger")
