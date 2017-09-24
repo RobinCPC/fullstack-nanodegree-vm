@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Restaurants</title>
+    </head>
+    <body>
+        <h1>Restaurants</h1> 
+        </br>
+
+        {% for r in restaurants: %}
+        {{r.name}}
+        </br>
+
+        <!-- Add url for -->
+        <a href="{{url_for( 'editRestaurant', 
+        restaurant_id=r.id)}}">Edit</a>
+        </br>
+
+        <a href="{{url_for('deleteRestaurant',
+        restaurant_id=r.id)}}">Delete</a>
+        </br>
+        </br>
+        {% endfor %}
+
+        <a href="{{ url_for( 'newRestaurant') }}">Create New Restaurants</a>
+        </br>
+
+    </body>
+</html>
