@@ -20,6 +20,11 @@
         </br>
         </br>
 
+        <!-- Check if there is no item in Menu -->
+        {% if items.__len__() == 0: %}
+        <h2>Currently, there is no item in Menu!</h2>
+        {% endif%}
+
         {% for i in items %}
         {{i.name}}
         </br>

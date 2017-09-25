@@ -8,6 +8,10 @@
         <h1>Restaurants</h1> 
         </br>
 
+        {% if restaurants.__len__() == 0: %}
+        <h2>Currently, there is no restaurant!</h2>
+        {% endif%}
+
         {% for r in restaurants: %}
         {{r.name}}
         </br>
