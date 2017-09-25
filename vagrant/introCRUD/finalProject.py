@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
+from flask import jsonify
 app = Flask(__name__)
 
 # import CRUD operations
@@ -12,6 +13,26 @@ engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine
 DBsession = sessionmaker(bind = engine)
 session = DBsession()
+
+
+# add API Endpoints
+@app.route('/restaurants/JSON')
+def restaurantsJSON():
+    restaurants = session.query(Restaurant)
+    return jsonify(Restaurant=[r.serialize for r in restaurants])
+
+
+@app.route('/restaurant/<int:restaurant_id>/menu/JSON')
+def restaurantMenuJSON(restaurant_id):
+    restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+    items = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
+    return jsonify(MenuItems=[i.serialize for i in items])
+
+
+@app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/JSON')
+def menuItemJSON(restaurant_id, menu_id):
+    item = session.query(MenuItem).filter_by(id=menu_id).one()
+    return jsonify(MenuItem=item.serialize)
 
 
 # Create simple pages for routing.
