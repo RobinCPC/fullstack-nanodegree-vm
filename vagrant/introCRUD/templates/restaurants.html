@@ -5,21 +5,20 @@
         <title>Restaurants</title>
     </head>
     <body>
-        <h1>Restaurants</h1> 
+        <h1>Restaurants</h1>
         </br>
 
-        {% if restaurants.__len__() == 0: %}
+        {% if restaurants.count() == 0: %}
         <h2>Currently, there is no restaurant!</h2>
         {% endif%}
 
         {% for r in restaurants: %}
-        {{r.name}}
+        <a href="{{url_for('showMenu', restaurant_id=r.id)}}"><strong>{{r.name}}</strong></a>
         </br>
 
         <!-- Add url for -->
-        <a href="{{url_for( 'editRestaurant', 
+        <a href="{{url_for( 'editRestaurant',
         restaurant_id=r.id)}}">Edit</a>
-        </br>
 
         <a href="{{url_for('deleteRestaurant',
         restaurant_id=r.id)}}">Delete</a>

@@ -6,12 +6,12 @@
             <p>Name:</p>
             <input type='text' size='30' name='name', placeholder='{{i.name}}'>
             <p>Description:</p>
-            <input type='text' size='30' name='Description', placeholder='{{i.description}}'>
+            <input type='text' size='30' name='description', placeholder='{{i.description}}'>
             <p>Price:</p>
             <input type='text' size='30' name='price', placeholder='{{i.price}}'>
             <p>Course:</p>
             {% set cour_arr = ["Appetizer", "Entree", "Desert", "Beverage"] %}
-            <select name="select">
+            <select name="course">
                 {% for k in cour_arr:%}
                 {% if k == i.course: %}
                 <option value="{{k}}" selected>{{k}}</option>
