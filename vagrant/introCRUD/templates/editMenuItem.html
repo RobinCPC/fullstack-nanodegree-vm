@@ -6,30 +6,31 @@
         <title>Edit Menu Item</title>
     </head>
     <body>
-        <h1> Edit Menu Item </h1>
+        <div class="pane">
+            <h1> Edit Menu Item </h1>
 
-        <form action="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=menu_id )}}" method= 'post'>
-            <p>Name:</p>
-            <input type='text' size='30' name='name', placeholder='{{i.name}}'>
-            <p>Description:</p>
-            <input type='text' size='30' name='description', placeholder='{{i.description}}'>
-            <p>Price:</p>
-            <input type='text' size='30' name='price', placeholder='{{i.price}}'>
-            <p>Course:</p>
-            {% set cour_arr = ["Appetizer", "Entree", "Desert", "Beverage"] %}
-            <select name="course">
-                {% for k in cour_arr:%}
-                {% if k == i.course: %}
-                <option value="{{k}}" selected>{{k}}</option>
-                {% else:%}
-                <option value="{{k}}">{{k}}</option>
-                {% endif %}
-                {% endfor %}
-            </select>
-            <input type='submit' value='Edit'>
-        </form>
-        <a href="{{ url_for('showMenu', restaurant_id=restaurant_id) }}">Cancel</a>
-
+            <form action="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=menu_id )}}" method= 'post'>
+                <p>Name:</p>
+                <input type='text' size='30' name='name', placeholder='{{i.name}}'>
+                <p>Description:</p>
+                <input type='text' size='30' name='description', placeholder='{{i.description}}'>
+                <p>Price:</p>
+                <input type='text' size='30' name='price', placeholder='{{i.price}}'>
+                <p>Course:</p>
+                {% set cour_arr = ["Appetizer", "Entree", "Desert", "Beverage"] %}
+                <select name="course">
+                    {% for k in cour_arr:%}
+                    {% if k == i.course: %}
+                    <option value="{{k}}" selected>{{k}}</option>
+                    {% else:%}
+                    <option value="{{k}}">{{k}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <input type='submit' value='Edit'>
+            </form>
+            <a href="{{ url_for('showMenu', restaurant_id=restaurant_id) }}">Cancel</a>
+        </div>
     </body>
 </html>
 

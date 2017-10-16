@@ -7,14 +7,15 @@
         <title>Edit Restaurant</title>
     </head>
     <body>
-        <h1>Edit Restaurant</h1>
+        <div class="pane">
+            <h1>Edit Restaurant</h1>
 
-        <form action="{{url_for('editRestaurant', restaurant_id=restaurant_id )}}" method= 'post'>
-            <p>Name:</p>
-            <input type='text' size='30' name='name', placeholder='{{ e.name }}'>
-            <input type='submit' value='Edit'>
-        </form>
-        <a href="{{ url_for('showRestaurants') }}">Cancel</a>
-
+            <form action="{{url_for('editRestaurant', restaurant_id=restaurant_id )}}" method= 'post'>
+                <p>Name:</p>
+                <input type='text' size='30' name='name', placeholder='{{ e.name }}'>
+                <input type='submit' value='Edit'>
+            </form>
+            <a href="{{ url_for('showRestaurants') }}">Cancel</a>
+        </div>
     </body>
 </html>

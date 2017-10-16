@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background-image: url('img3.jpg');
+    background-image: url('table.jpg');
     background-color: #333333
 }
 
@@ -39,7 +39,8 @@ a {
 
 .pane {
     position: absolute;
-    left: 25%;
+    left: 20%;
+    right: 20%;
     border: 2px solid;
     border-radius: 25px;
     padding: 5px;
@@ -54,16 +55,19 @@ a {
 }
 
 .name {
-    width: 50%;
+    width: 75%;
     display: inline-block;
     float: left;
 }
 
-.description {}
+.description {
+    text-align: left;
+    width: 80%;
+}
 
 .price {
     text-align: right;
-    width: 50%;
+    width: 100%;
     float: right;
 }
 
