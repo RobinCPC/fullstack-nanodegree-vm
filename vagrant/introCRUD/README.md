@@ -1,3 +1,6 @@
+Udacity Full Stack Web Developer Nanodegree Program
+=====
+
 To run the final project
 
 1. Navigate to this directory inside the vagrant environment
