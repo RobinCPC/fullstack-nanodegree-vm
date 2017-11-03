@@ -8,4 +8,4 @@ During this program, I had completed couples of project about fullstack, include
 2. Built a RESTful web application that queries a database for items and generates the form of web pages.  
   [Here](./vagrant/introCRUD/) is the project folder.
 3. Created an interactive resume web page that reads your resume content from a JSON file.
-  This project is storaged in different repo, please visit the [repo](https://github.com/RobinCPC/frontend-nanodegree-resume), and the [webpage](https://github.com/RobinCPC/frontend-nanodegree-resume)
+  This project is storaged in different repo, please visit the [repo](https://github.com/RobinCPC/frontend-nanodegree-resume), and the [webpage](http://robincpc.github.io/frontend-nanodegree-resume/)
